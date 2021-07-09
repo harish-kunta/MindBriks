@@ -12,6 +12,7 @@
    */
   const select = (el, all = false) => {
     el = el.trim()
+    console.log("in select "+ el)
     if (all) {
       return [...document.querySelectorAll(el)]
     } else {
@@ -26,7 +27,8 @@
     if (all) {
       select(el, all).forEach(e => e.addEventListener(type, listener))
     } else {
-      select(el, all).addEventListener(type, listener)
+      if(select(el, all)!=null)
+        select(el, all).addEventListener(type, listener)
     }
   }
 
